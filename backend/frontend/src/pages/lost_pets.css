@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.fc-lost-list { padding: 24px; font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+.fc-lost-list-inner { max-width: 920px; margin: 0 auto; }
+.fc-lost-grid { display: flex; flex-direction: column; gap: 12px; }
+.fc-lost-card { background: #fff; border-radius: 8px; padding: 12px 14px; display: flex; gap: 12px; align-items: center; box-shadow: 0 6px 18px rgba(48,47,77,0.06); transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease; cursor: default; border: 1px solid rgba(16,16,24,0.04); }
+.fc-lost-photo { width: 110px; height: 110px; border-radius: 8px; overflow: hidden; flex-shrink: 0; box-shadow: 0 2px 8px rgba(16,16,24,0.04); }
+.fc-lost-photo img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 6px; }
+.fc-lost-meta { flex: 1; }
+.fc-lost-name { margin: 0; font-size: 18px; font-weight: 600; color: #1f2a44; }
+.fc-lost-breed { color: #6b6b75; font-size: 13px; margin-top: 6px; font-weight: 500; }
+.fc-lost-owner, .fc-lost-phone { margin-top: 8px; font-size: 14px; color: #2b3140; }
+.fc-lost-owner strong { font-weight: 700; color: #111827; }
+.fc-lost-actions { display:flex; flex-direction: column; gap: 8px; }
+
+.fc-lost-location { margin-top: 8px; color: #3b3f4a; font-size: 13px; }
+.fc-lost-coords { margin-top: 4px; color: #5b6170; font-size: 13px; }
+.fc-lost-actions .fc-btn { background: #2563eb; color: #fff; padding: 8px 10px; border-radius: 6px; border: none; font-weight: 600; }
+.fc-lost-actions .fc-btn:hover { background: #1e4fd8; }
+
+/* Hover animation: subtle lift and highlight */
+.fc-lost-card:hover {
+  transform: translateX(6px) translateY(-2px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(48,47,77,0.12);
+  background-color: #fffdfc;
+}
+
+/* Make rows more keyboard/mouse friendly */
+.fc-lost-card:active { transform: translateX(4px) translateY(0); }
+
+/* Keep existing button styles consistent with dashboard */
+.fc-btn { cursor: pointer; }
+
+@media (max-width: 640px) {
+  .fc-lost-card { flex-direction: column; align-items: stretch; }
+  .fc-lost-photo { width: 100%; height: 180px; }
+}
+
+/* Load a nicer font from Google Fonts (fallbacks in place) */
