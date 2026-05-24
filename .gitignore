@@ -33,8 +33,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# AI service models and virtualenvs
-ai_service/models/
+# AI service virtualenvs and cache
 ai_service/venv/
 ai_service/__pycache__/
 
@@ -56,9 +55,6 @@ ai_service/venv/
 .env
 __pycache__/
 *.pyc
-*.h5
-*.pt
-*.pth
-*.pkl
+
 dist/
 build/
