@@ -1,0 +1,383 @@
+/* My Care - Advanced Bento & Clean Glass UI */
+:root {
+  --clay-bg: #f4efeb;
+  --glass-white: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --terracotta: #bf6d4e;
+  --terracotta-hover: #a35a3e;
+  --earth-dark: #4a3728;
+  --earth-muted: #8c7b70;
+  --accent-soft: #e9ded5;
+}
+
+.mc-root {
+  padding: 32px 40px;
+  font-family: 'Quicksand', 'Inter', system-ui, sans-serif;
+  color: var(--earth-dark);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Hero heading for FurCare intelligence */
+.mc-hero {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.mc-hero h1 {
+  margin: 0 0 6px 0;
+  font-size: 26px;
+  font-weight: 800;
+  font-family: 'Poppins', 'Quicksand', 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.6px;
+  /* Stronger gradient for better contrast */
+  background: linear-gradient(90deg, #6b3b28 20%, var(--terracotta) 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* remove bright white shadow to keep text darker and more legible */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+.mc-hero-sub {
+  margin: 0;
+  font-size: 13px;
+  color: var(--earth-muted);
+  opacity: 0.95;
+}
+
+/* ─── Unified Tab Card ─────────────────────────────── */
+
+.mc-tab-container {
+  /* Expand center card to use most of the viewport on wide screens */
+  width: 95%;
+  max-width: 2000px;
+  min-width: 780px;
+  margin: 0 auto;
+  /* Single card — nav + panel live INSIDE this one surface */
+  background: var(--glass-white);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 32px;
+  box-shadow: 0 10px 40px rgba(74, 55, 40, 0.07), inset 0 2px 0 rgba(255,255,255,0.6);
+  overflow: hidden;
+}
+
+/* Tab Nav — flush top of the card */
+.mc-tab-nav {
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(233, 222, 213, 0.6);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.mc-tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--earth-muted);
+  font-family: 'Quicksand', 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  white-space: nowrap;
+}
+
+.mc-tab-btn .mc-tab-icon {
+  font-size: 17px;
+  transition: transform 0.3s ease;
+}
+
+.mc-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--earth-dark);
+}
+
+.mc-tab-btn:hover .mc-tab-icon { transform: scale(1.15); }
+
+.mc-tab-btn.active {
+  background: var(--terracotta);
+  color: white;
+  box-shadow: 0 4px 16px rgba(191, 109, 78, 0.28);
+}
+
+.mc-tab-btn.active .mc-tab-icon { transform: scale(1.1); }
+
+/* Tab Panel body */
+.mc-tab-panel {
+  min-height: 560px;
+  position: relative;
+}
+
+.mc-tab-content {
+  padding: 40px 44px;
+  display: none;
+  animation: tabFadeIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.mc-tab-content.active { display: block; }
+
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Card Header ─────────────────────────────────── */
+
+.mc-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.mc-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.mc-card-head h3 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--earth-dark);
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+/* ─── Content ─────────────────────────────────────── */
+
+.mc-card-body p {
+  line-height: 1.85;
+  color: var(--earth-dark);
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.mc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.mc-list li {
+  position: relative;
+  padding: 14px 16px 14px 40px;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  border: 1px solid rgba(255,255,255,0.35);
+  transition: all 0.2s ease;
+}
+
+.mc-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 16px;
+  color: var(--terracotta);
+  font-size: 11px;
+  top: 16px;
+}
+
+.mc-list li:hover { background: white; transform: translateX(3px); }
+
+/* ─── CTA Overlay ─────────────────────────────────── */
+
+.mc-action-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(244, 239, 235, 0.45);
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.mc-action-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mc-action {
+  background: var(--terracotta);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: inherit;
+  box-shadow: 0 8px 24px rgba(191, 109, 78, 0.25);
+  transition: all 0.3s ease;
+}
+
+.mc-action:hover {
+  background: var(--terracotta-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(191, 109, 78, 0.35);
+}
+
+/* ─── Skeletons ───────────────────────────────────── */
+
+.mc-skeleton {
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(90deg, rgba(233,222,213,0.5) 25%, rgba(255,255,255,0.8) 50%, rgba(233,222,213,0.5) 75%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s infinite;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.mc-skeleton.title { width: 55%; height: 26px; margin-bottom: 20px; }
+.mc-skeleton.short { width: 75%; }
+@keyframes skeletonPulse {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Floating Assistant ──────────────────────────── */
+
+.mc-assistant-trigger {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: var(--earth-dark);
+  color: white;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 16px 32px rgba(74, 55, 40, 0.25), inset 0 2px 0 rgba(255,255,255,0.2);
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mc-assistant-trigger:hover { width: 170px; background: var(--terracotta); }
+
+.mc-assistant-trigger::after {
+  content: "Care Assistant";
+  display: none;
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 12px;
+  white-space: nowrap;
+}
+
+.mc-assistant-trigger:hover::after { display: block; }
+
+/* ─── Chat Window ─────────────────────────────────── */
+
+.mc-chat-window {
+  position: fixed;
+  bottom: 120px;
+  right: 40px;
+  width: 380px;
+  height: 600px;
+  background: rgba(253, 252, 251, 0.85);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border-radius: 36px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 30px 80px rgba(74, 55, 40, 0.15), inset 0 2px 0 rgba(255,255,255,0.8);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  animation: scaleUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: bottom right;
+}
+
+.mc-chat-header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(233, 222, 213, 0.5);
+  /* Reduce overall MyCare page content scale by 10% while leaving sidebar untouched */
+  transform-origin: top center;
+  transform: scale(0.90);
+  will-change: transform;
+}
+
+.mc-chat-messages {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+  .mc-root {
+    transform: none;
+  }
+
+.mc-chat-input-area {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid rgba(233, 222, 213, 0.5);
+}
+
+.mc-chat-input-area input {
+  flex: 1;
+  padding: 16px 24px;
+  border-radius: 50px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.8);
+  outline: none;
+  font-family: inherit;
+  color: var(--earth-dark);
+  transition: all 0.3s;
+}
+
+.mc-chat-input-area input:focus {
+  border-color: var(--terracotta);
+  background: white;
+}
+
+/* ─── Animations ──────────────────────────────────── */
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.stagger-1 { animation: scaleUp 0.5s both; }
+.stagger-2 { animation: scaleUp 0.5s 0.1s both; }
+.stagger-3 { animation: scaleUp 0.5s 0.2s both; }
+
+/* ─── Responsive ──────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .mc-root { padding: 16px; }
+  .mc-tab-btn .mc-tab-label { display: none; }
+  .mc-tab-btn { padding: 12px 10px; }
+  .mc-tab-content { padding: 24px 20px; }
+  .mc-list { grid-template-columns: 1fr; }
+}

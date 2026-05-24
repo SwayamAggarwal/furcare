@@ -1,0 +1,64 @@
+# Project-level .gitignore for pet-ai-platform
+
+# Node / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# Frontend
+frontend/build/
+frontend/node_modules/
+
+# Backend
+backend/node_modules/
+backend/uploads/
+
+# Python / AI service
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Don't accidentally commit environment files
+.env
+.env.local
+.env.*.local
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# AI service models and virtualenvs
+ai_service/models/
+ai_service/venv/
+ai_service/__pycache__/
+
+# Logs
+logs/
+*.log
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+
+
+node_modules/
+venv/
+ai_service/venv/
+.env
+__pycache__/
+*.pyc
+*.h5
+*.pt
+*.pth
+*.pkl
+dist/
+build/

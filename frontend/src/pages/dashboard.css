@@ -1,0 +1,536 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* warmer yellow/brown theme */
+  --fc-bg: linear-gradient(120deg, #fff7ef 0%, #fff1df 25%, #ffe6c2 55%, #fff8f2 85%);
+  --fc-sidebar-bg: rgba(255,255,252,0.96);
+  --fc-card-bg: rgba(255,255,255,0.94);
+  --fc-card-accent: rgba(255,245,220,0.85);
+  --fc-primary: #f5b942; /* golden yellow */
+  --fc-accent: #ffd89b; /* peach */
+  --fc-brown: #c79a5b; /* warm brown */
+  --fc-soft: #fff4e6; /* soft warm tint */
+  --fc-text: #0f1724;
+  --fc-muted: #7f7f86;
+  --fc-shadow: rgba(199,145,74,0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  /* apply the page gradient so it is visible behind translucent cards */
+  background: var(--fc-bg);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.fc-dashboard-root {
+  display: flex;
+  height: 100vh;
+  /* make root transparent so page background shows through */
+  background: transparent;
+  padding: 16px;
+  gap: 20px;
+}
+
+.fc-sidebar {
+  width: 300px;
+  background: var(--fc-sidebar-bg);
+  backdrop-filter: blur(18px);
+  border-radius: 28px;
+  padding: 28px 22px;
+  box-shadow: 0 30px 60px var(--fc-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.fc-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.fc-paw-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: linear-gradient(135deg,var(--fc-primary),var(--fc-brown));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fc-logo-text {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.fc-side-btn {
+  border: none;
+  background: transparent;
+  padding: 14px 16px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.fc-side-btn:hover {
+  background: rgba(255,255,255,0.7);
+}
+
+.fc-side-btn.fc-active,
+.fc-active {
+  background: linear-gradient(90deg, #b9894a 0%, #f6e6cc 70%);
+  color: #2b1a0f;
+  border: none;
+  /* lighter shadow + subtle outer halo */
+  box-shadow: 0 8px 20px rgba(119,76,40,0.12), 0 0 0 4px rgba(199,154,90,0.04);
+  transform: translateX(2px);
+}
+
+.fc-sidebar-footer {
+  margin-top: auto;
+}
+
+.fc-logout-btn {
+  margin-top: 14px;
+  width: 100%;
+  background: linear-gradient(90deg,#fff1f0,#ffdede);
+  color: #8a2b2b;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(138,43,43,0.06);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.fc-logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(138,43,43,0.09);
+  background: linear-gradient(90deg,#8a2b2b 0%, #6f1f1f 100%);
+  color: #ffffff;
+  border-color: rgba(0,0,0,0.06);
+}
+.fc-logout-btn:active { transform: translateY(0); filter: brightness(0.95); }
+
+.fc-user-card {
+  background: rgba(255,255,255,0.65);
+  border-radius: 22px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.fc-user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f4b840;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fc-main {
+  flex: 1;
+  /* allow enlarged cards to extend without being clipped */
+  overflow: visible;
+}
+
+.fc-main-scroll {
+  overflow-y: visible;
+  height: auto;
+}
+
+.fc-main-header {
+  margin-bottom: 24px;
+}
+
+.fc-main-header h1 {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--fc-text);
+  letter-spacing: -1px;
+}
+
+.fc-main-header p {
+  color: var(--fc-muted);
+  margin-top: 6px;
+}
+
+.fc-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.fc-stat-card {
+  background: rgba(255,255,255,0.6);
+  border-radius: 28px;
+  padding: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+
+.fc-stat-card h3 {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.fc-stat-card strong {
+  display: block;
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+.fc-stat-card span {
+  color: var(--fc-green);
+  font-weight: 600;
+}
+
+.fc-carousel-section {
+  display: flex;
+  justify-content: center;
+}
+
+.fc-card-stage {
+  width: 1200px;
+  height: 620px;
+  position: relative;
+  margin: 24px auto;
+}
+
+/* Side navigation buttons for switching pet profiles */
+.fc-stage-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(191,109,78,0.98) 0%, rgba(234,167,122,0.98) 100%);
+  color: white;
+  box-shadow: 0 12px 30px rgba(163,90,62,0.18), 0 6px 18px rgba(0,0,0,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer;
+  z-index: 60;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  transition: transform 0.18s cubic-bezier(.2,.9,.3,1), box-shadow 0.18s ease, filter 0.18s ease;
+  backdrop-filter: blur(6px) saturate(140%);
+}
+.fc-stage-nav:hover {
+  transform: translateY(-50%) scale(1.08) rotate(0.5deg);
+  box-shadow: 0 18px 40px rgba(163,90,62,0.22), 0 10px 28px rgba(0,0,0,0.08);
+  filter: saturate(1.05) brightness(1.02);
+}
+.fc-stage-nav.left { left: -46px; }
+.fc-stage-nav.right { right: -46px; }
+
+@media (max-width: 1200px) {
+  .fc-stage-nav { display: none; }
+}
+
+.fc-stack-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  border-radius: 40px;
+  overflow: hidden;
+  background: var(--fc-card-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 40px 90px var(--fc-shadow), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: 0.4s ease;
+}
+
+.fc-stack-front {
+  z-index: 3;
+}
+
+/* active front card style */
+.fc-stack-front {
+  transform: translateY(-6px) scale(1.03) !important;
+  box-shadow: 0 30px 80px var(--fc-shadow), inset 0 1px 0 rgba(255,255,255,0.6);
+  z-index: 6;
+}
+
+.fc-stack-second {
+  transform: translateX(36px) scale(0.94) rotate(-1deg);
+  opacity: 0.65;
+  z-index: 2;
+}
+
+.fc-stack-third {
+  transform: translateX(72px) scale(0.88) rotate(-2deg);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.fc-stack-hidden {
+  opacity: 0;
+}
+
+.fc-pet-photo {
+  width: 420px;
+  min-width: 320px;
+  background: linear-gradient(135deg, var(--fc-card-accent) 0%, #ffe8c2 45%, var(--fc-brown) 90%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.fc-pet-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fc-card-body {
+  flex: 1;
+  padding: 48px 48px 40px 48px;
+}
+
+.fc-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fc-card-body h3 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #0f1724;
+}
+
+.fc-heart-btn {
+  border: none;
+  background: rgba(255,255,255,0.8);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.fc-breed-tag {
+  display: inline-flex;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(99,193,116,0.15);
+  color: #2d9b43;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.fc-card-desc {
+  margin-top: 20px;
+  line-height: 1.8;
+  color: #666;
+}
+
+.fc-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.fc-stat-chip {
+  background: rgba(255,255,255,0.65);
+  border-radius: 20px;
+  padding: 14px;
+}
+
+.fc-stat-label {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.fc-stat-value {
+  font-weight: 700;
+}
+
+.fc-card-actions {
+  margin-top: 24px;
+  display:flex;
+  align-items:center;
+}
+
+/* Header: place CTAs inline with the pet name */
+.fc-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.fc-card-top h3 {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--fc-text);
+  margin: 0;
+}
+.fc-inline-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.fc-inline-btn {
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 13px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.fc-inline-btn.fc-btn-lost { background: linear-gradient(135deg,#fff2d9,#ffd484); }
+.fc-inline-btn.fc-btn-found { background: linear-gradient(135deg,#63c174,#87d995); color: white; }
+.fc-inline-btn.fc-btn-qr { background: linear-gradient(135deg,#eaf4ff 0%, #dbe9ff 100%); color: #0f2b55; }
+
+@media (max-width: 900px) {
+  .fc-card-top { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .fc-inline-actions { width: 100%; justify-content: flex-start; }
+}
+
+.fc-btn {
+  border: none;
+  border-radius: 16px;
+  padding: 14px 22px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.fc-btn-qr {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg,#eaf4ff 0%, #dbe9ff 100%);
+  color: #0f2b55;
+  padding: 10px 14px;
+  border-radius: 14px;
+  margin-left: 10px;
+  border: 1px solid rgba(15,43,85,0.06);
+  box-shadow: 0 10px 30px rgba(13,41,80,0.06), inset 0 1px 0 rgba(255,255,255,0.7);
+  transition: transform 0.18s cubic-bezier(.2,.9,.3,1), box-shadow 0.18s ease, filter 0.18s ease;
+}
+.fc-btn-qr:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 18px 44px rgba(13,41,80,0.12);
+}
+.fc-btn-qr:active { transform: translateY(-1px) scale(0.995); }
+.qr-icon { display: inline-flex; width: 18px; height: 18px; color: #0f2b55; }
+.qr-label { font-weight: 800; font-size: 13px; }
+
+.fc-btn-lost {
+  background: linear-gradient(135deg,#fff1c8,#ffd978);
+}
+
+.fc-btn-found {
+  background: linear-gradient(135deg,#63c174,#87d995);
+  color: white;
+}
+
+.fc-loading-screen,
+.fc-error-screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fc-paw-spin {
+  font-size: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1200px) {
+  .fc-stats-row {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .fc-card-stage {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .fc-dashboard-root {
+    flex-direction: column;
+  }
+
+  .fc-sidebar {
+    width: 100%;
+  }
+
+  .fc-stack-card {
+    flex-direction: column;
+  }
+
+  .fc-pet-photo {
+    width: 100%;
+    height: 320px;
+  }
+
+  .fc-stats-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reduced overrides to ensure dashboard fits and respects inline styles */
+.fc-dashboard-root .fc-main {
+  overflow: visible !important;
+}
+.fc-dashboard-root .fc-card-stage {
+  width: 1000px !important;
+  max-width: calc(100% - 120px) !important;
+  height: 520px !important;
+  margin: 18px auto !important;
+}
+.fc-dashboard-root .fc-pet-photo {
+  width: 320px !important;
+  min-width: 260px !important;
+}
+.fc-dashboard-root .fc-card-body {
+  padding: 28px 28px 24px 28px !important;
+}
+.fc-dashboard-root .fc-card-body h3 {
+  font-size: 42px !important;
+}
+.fc-dashboard-root .fc-stack-front {
+  transform: translateY(-4px) scale(1.01) !important;
+  z-index: 6 !important;
+}
+
